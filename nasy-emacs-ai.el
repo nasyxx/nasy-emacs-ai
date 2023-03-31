@@ -57,6 +57,7 @@
     (("role" . "user") ("content" . ,msg))])
 
 
+;;;###autoload
 (defun nasy-tozh (msg)
   "Translate MSG to Chinese."
   (interactive "MMSG: ")
@@ -64,12 +65,15 @@
    (nasy-openai-chat-create "翻译为中文" msg)
    (lambda (data) (message "%s" (nasy-openai-chat-parse data)))))
 
+
+;;;###autoload
 (defun nasy-tozh-at-point (start end)
   "Translate region from START to END to Chinese."
   (interactive "r")
   (nasy-tozh (buffer-substring-no-properties start end)))
 
 
+;;;###autoload
 (defun nasy-pdf-tozh-at-point ()
   "Translate PDF region to Chinese."
   (interactive)
