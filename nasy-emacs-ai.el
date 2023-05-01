@@ -26,6 +26,7 @@
 ;;; Code:
 
 (require 'openai)
+(require 'openai-chat)
 
 
 (defgroup nasy-ai nil
