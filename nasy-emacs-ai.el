@@ -121,8 +121,7 @@
 ;;;###autoload
 (defun nasy-ai-tozh-at-point (start end)
   "Translate region from START to END to Chinese."
-  (interactive "r\nP")
-  (message "%s %s %s %s" start end arg msg)
+  (interactive "r")
   (nasy-ai-tozh (buffer-substring-no-properties start end)))
 
 
