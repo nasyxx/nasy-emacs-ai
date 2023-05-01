@@ -52,6 +52,12 @@
   :group 'nasy-ai)
 
 
+(defcustom nasy-ai-model "gpt-3.5-turbo"
+  "Model for openai."
+  :type 'string
+  :group 'nasy-ai)
+
+
 (defcustom nasy-ai-sidewindow-parametrs
   '((side . bottom)
     (slot . 0)
@@ -98,7 +104,8 @@
   (interactive "MMSG: ")
   (openai-chat
    (nasy-ai-openai-chat-create "翻译为中文" msg)
-   (lambda (data) (funcall nasy-ai-show-function (nasy-ai-openai-chat-parse data)))))
+   (lambda (data) (funcall nasy-ai-show-function (nasy-ai-openai-chat-parse data)))
+   :model nasy-ai-model))
 
 
 ;;;###autoload
@@ -107,7 +114,8 @@
   (interactive "MMSG: ")
   (openai-chat
    (nasy-ai-openai-chat-create "Translate to english" msg)
-   (lambda (data) (funcall nasy-ai-show-function (nasy-ai-openai-chat-parse data)))))
+   (lambda (data) (funcall nasy-ai-show-function (nasy-ai-openai-chat-parse data)))
+   :model nasy-ai-model))
 
 
 ;;;###autoload
